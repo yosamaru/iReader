@@ -1,0 +1,18 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: syndra
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@127.0.0.1:8761/eureka/
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info

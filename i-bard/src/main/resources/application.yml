@@ -1,0 +1,19 @@
+server:
+  port: 8765
+
+spring:
+  application:
+    name: bard
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@127.0.0.1:8761/eureka/
+zuul:
+  routes:
+    api-corki:
+      path: /api/corki/**
+      serviceId: corki
+    api-gangplank:
+      path: /api/gangplank/**
+      serviceId: gangplank
