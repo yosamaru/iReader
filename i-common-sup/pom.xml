@@ -32,6 +32,7 @@
     <commons-io.version>2.6</commons-io.version>
     <httpclient.version>4.5.12</httpclient.version>
     <druid.version>1.1.22</druid.version>
+    <slf4j.version>1.7.21</slf4j.version>
   </properties>
 
   <dependencyManagement>
@@ -47,6 +48,12 @@
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
         <version>${guava.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>${slf4j.version}</version>
       </dependency>
 
       <!--各种集合类和集合工具类的封装-->
