@@ -1,0 +1,17 @@
+<div ng-controller="HomeController">
+    <h1>Welcome to Dingguagua！</h1>
+
+    <div ng-show="generic">
+    <h3 ng-show="generich">Generic User</h3>
+    <a type="button" href="#/page/user/login" ng-show="genericlogin" ng-cloak>登陆</a>
+    <a type="button" href="#/page/user/register" ng-show="genericregister" ng-cloak>注册</a>
+    <button ng-click="loginOut()" ng-show="genericloginOut" ng-controller='UserController'>退出</button>
+    </div>
+
+    <div ng-show="moderator">
+    <h3 ng-show="moderatorh">Moderator</h3>
+    <a type="button" href="#/page/moderator/login" ng-show="moderatorlogin" ng-cloak>登陆</a>
+    <a type="button" href="#/page/moderator/register" ng-show="moderatorregister" ng-cloak>注册</a>
+    <button ng-click="loginOut()" ng-show="moderatorloginOut" ng-controller='ModeratorController'>退出</button>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<h1>ADD BOOK</h1>
+<form  ng-controller="BookController" enctype="multipart/form-data">
+   <div class="form-group">
+   <label>Subject</label>
+   <input type="text" class="form-control"  ng-model="bookBean.subject" /><br/>
+   </div>
+
+   <div class="form-group">
+   <label>Description</label>
+   <input type="text" class="form-control"  ng-model="bookBean.description" />
+   </div>
+
+   <div class="form-group">
+   <label>ISBN</label>
+   <input type="text" class="form-control"  ng-model="bookBean.isbn" />
+   </div>
+
+   <div class="form-group">
+   <label>Content</label>
+   <input type="text" class="form-control"  ng-model="bookBean.content" />
+   </div>
+
+   <div class="form-group">
+   <label>Content Type</label>
+   <input type="text" class="form-control" ng-model="bookBean.contentType" />
+   </div>
+
+   <div class="form-group">
+      <label>Author</label>
+      <select ng-model="bookBean.authorId" ng-options="c.id as c.name for c in authors" >
+         <option value="">----选择作者----</option>
+      </select>
+   </div>
+
+   <div class="form-group">
+   <label>Publisher</label>
+   <select ng-model="bookBean.publisherId" ng-options="c.id as c.name for c in publishers" >
+      <option value="">----选择出版社----</option>
+   </select>
+   </div>
+
+   <div class="form-group">
+   <label>Category</label>
+   <select ng-model="bookBean.categoryId" ng-options="c.id as c.name for c in categorys" >
+      <option value="">----选择类型----</option>
+   </select>
+   </div>
+
+   <div class="form-group">
+   <label>Price</label>
+   <input type="text" class="form-control" ng-model="bookBean.price" />
+   </div>
+
+   <div class="form-group">
+      <label>上传书籍</label>
+      <input type="file" class="form-control" id="bookFile"/>
+   </div>
+
+
+   <div class="form-group">
+   <button type="submit" ng-click="submitForm()" value="save">保存</button>
+   </div>
+</form>
+</div>

@@ -1,0 +1,53 @@
+<div ng-controller="BookController">
+    <form>
+            <label>Subject</label>
+            <input type="text" class="form-control"  ng-model="searchBean.subject"/>
+            <label>Author</label>
+            <input type="text" class="form-control"  ng-model="searchBean.author"/>
+            <label>Publisher</label>
+            <input type="text" class="form-control"  ng-model="searchBean.publisher"/>
+
+            <label>Category</label>
+            <input type="text" class="form-control"  ng-model="searchBean.category"/>
+
+            <button type="submit" ng-click="searchBook()" value="searchBook">查询</button>
+    </form>
+
+    <table  border="1" cellspacing="0" cellpadding="0">
+        <thead>
+        <tr>
+            <td align="center">Subject</td>
+            <td align="center">Description</td>
+            <td align="center">ISBN</td>
+            <td align="center">Content</td>
+            <td align="center">Content Type</td>
+            <td align="center">Author</td>
+            <td align="center">Publisher</td>
+            <td align="center">Category</td>
+            <td align="center">Created Date</td>
+            <td align="center">Price</td>
+            <td align="center">Handler</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="book in books">
+            <td align="center">{{book.subject}}</td>
+            <td align="center">{{book.description}}</td>
+            <td align="center">{{book.isbn}}</td>
+            <td align="center">{{book.content}}</td>
+            <td align="center">{{book.contentType}}</td>
+            <td align="center">{{book.authorName}}</td>
+            <td align="center">{{book.publisherName}}</td>
+            <td align="center">{{book.categoryName}}</td>
+            <td align="center">{{book.createTime}}</td>
+            <td align="center">{{book.price}}</td>
+            <td align="center">
+                <input type="button" ng-click="remove(book.id)" ng-show="addShow==1" value="Remove">
+                <input type="button" ng-click="buy(book.id)" ng-show="addShow==0" value="Buy">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a type="button" href="#/page/book/add" ng-show="addShow==1" ng-cloak>添加书籍</a>
+</div>
