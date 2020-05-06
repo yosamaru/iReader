@@ -34,26 +34,25 @@ public class ReaderAccountPO {
 	@SequenceGenerator(name = "R_ACCOUNT_SEQ", sequenceName = "R_ACCOUNT_SEQ")
 	@Column(name = "ACCOUNT_ID")
 	private Long accountId;
-	@OneToOne(targetEntity = ReaderOrganizePO.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "ORGANIZE_ID", referencedColumnName = "organizeId")
+	@OneToOne
+	@JoinColumn(name = "ORGANIZE_ID")
 	private ReaderOrganizePO organizePO;
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinTable(name = "R_ACCOUNT_PERMISSION_RELATION", joinColumns = {
-			@JoinColumn(name = "ACCOUNT__ID", referencedColumnName = "accountId")}, inverseJoinColumns = {
-			@JoinColumn(name = "ROLE_ID", referencedColumnName = "roleId")})
+	@JoinTable(name = "R_ACCOUNT_PERMISSION_RELATION", joinColumns =
+	@JoinColumn(name = "ACCOUNT_ID"), inverseJoinColumns =
+	@JoinColumn(name = "ROLE_ID"))
 	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 	private List<ReaderPermissionPO> permissionPOList;
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinTable(name = "R_ACCOUNT_GROUP_RELATION", joinColumns = {
-			@JoinColumn(name = "ACCOUNT__ID", referencedColumnName = "accountId")}, inverseJoinColumns = {
-			@JoinColumn(name = "GROUP_ID", referencedColumnName = "groupId")})
+	@JoinTable(name = "R_ACCOUNT_GROUP_RELATION", joinColumns =
+	@JoinColumn(name = "ACCOUNT_ID"), inverseJoinColumns =
+	@JoinColumn(name = "GROUP_ID"))
 	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 	private List<ReaderGroupPO> groupPOList;
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinTable(name = "R_ACCOUNT_ROLE_RELATION", joinColumns = {
-			@JoinColumn(name = "ACCOUNT__ID", referencedColumnName = "accountId")}, inverseJoinColumns = {
-			@JoinColumn(name = "ROLE_ID", referencedColumnName = "roleId")})
-	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+	@JoinTable(name = "R_ACCOUNT_ROLE_RELATION", joinColumns =
+	@JoinColumn(name = "ACCOUNT_ID"), inverseJoinColumns =
+	@JoinColumn(name = "ROLE_ID"))
 	private List<ReaderRolePO> rolePOList;
 	@Column(name = "LOGIN_ACCOUNT", unique = true, updatable = true)
 	private String loginAccount;

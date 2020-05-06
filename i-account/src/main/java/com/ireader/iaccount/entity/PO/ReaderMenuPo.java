@@ -31,9 +31,9 @@ public class ReaderMenuPo {
 	@Column(name = "MENU_ID")
 	private Long menuId;
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinTable(name = "R_GROUP_ROLE_RELATION", joinColumns = {
-			@JoinColumn(name = "MENU_ID", referencedColumnName = "menuId")}, inverseJoinColumns = {
-			@JoinColumn(name = "ROLE_ID", referencedColumnName = "roleId")})
+	@JoinTable(name = "R_MENU_ROLE_RELATION", joinColumns =
+	@JoinColumn(name = "MENU_ID"), inverseJoinColumns =
+	@JoinColumn(name = "ROLE_ID"))
 	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 	private List<ReaderRolePO> rolePOList;
 	@Column(name = "MENU_NAME")

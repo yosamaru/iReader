@@ -32,8 +32,8 @@ public class ReaderLogOperatePO {
 	private Long operateType;
 	@Column(name = "OPERATE_CONTENT")
 	private String operateContent;
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "ACCOUNT_ID", referencedColumnName = "accountId")
+	@OneToOne
+	@JoinColumn(name = "ACCOUNT_ID")
 	private ReaderAccountPO accountPO;
 	@Column(name = "OPERATE_TIME")
 	private Long operateTme;

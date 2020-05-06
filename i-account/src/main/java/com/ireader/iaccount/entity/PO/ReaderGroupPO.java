@@ -34,15 +34,15 @@ public class ReaderGroupPO {
 	@Column(name = "GROUP_ID")
 	private Long groupId;
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinTable(name = "R_ORGANIZE_PERMISSION_RELATION", joinColumns = {
-			@JoinColumn(name = "GROUP_ID", referencedColumnName = "groupId")}, inverseJoinColumns = {
-			@JoinColumn(name = "PERMISSION_ID", referencedColumnName = "permissionId")})
+	@JoinTable(name = "R_ORGANIZE_PERMISSION_RELATION", joinColumns =
+	@JoinColumn(name = "GROUP_ID"), inverseJoinColumns =
+	@JoinColumn(name = "PERMISSION_ID"))
 	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 	private List<ReaderPermissionPO> permissionPOList;
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinTable(name = "R_GROUP_ROLE_RELATION", joinColumns = {
-			@JoinColumn(name = "GROUP_ID", referencedColumnName = "groupId")}, inverseJoinColumns = {
-			@JoinColumn(name = "ROLE_ID", referencedColumnName = "roleId")})
+	@JoinTable(name = "R_GROUP_ROLE_RELATION", joinColumns =
+	@JoinColumn(name = "GROUP_ID"), inverseJoinColumns =
+	@JoinColumn(name = "ROLE_ID"))
 	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 	private List<ReaderRolePO> rolePOList;
 	@Column(name = "GROUP_NAME")

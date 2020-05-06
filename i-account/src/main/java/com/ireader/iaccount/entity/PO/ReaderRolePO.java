@@ -16,8 +16,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * 角色
@@ -36,10 +34,9 @@ public class ReaderRolePO {
 	@Column(name = "PARENT_ROLE_ID")
 	private Long parentRoleId;
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinTable(name = "R_ROLE_PERMISSION_RELATION", joinColumns = {
-			@JoinColumn(name = "ROLE_ID", referencedColumnName = "roleId")}, inverseJoinColumns = {
-			@JoinColumn(name = "PERMISSION_ID", referencedColumnName = "permissionId")})
-	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+	@JoinTable(name = "R_ROLE_PERMISSION_RELATION", joinColumns =
+	@JoinColumn(name = "ROLE_ID"), inverseJoinColumns =
+	@JoinColumn(name = "PERMISSION_ID"))
 	private List<ReaderPermissionPO> permissionPOList;
 	@Column(name = "ROLE_NAME")
 	private String roleName;
